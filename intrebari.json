@@ -1,16 +1,16 @@
 [{
-    "intrebare": "Întrebarea 1",
-    "variante": ["varianta 1", "varianta 2", "varianta 3", "varianta 4"],
-    "corect": 0
-},
-{
-    "intrebare": "Întrebarea 2",
-    "variante": ["varianta 1", "varianta 2", "varianta 3", "varianta 4"],
+    "intrebare": "Cel mai bun moment pentru aplicarea prevenitorului de crab este:",
+    "variante": ["0. După a doua cosire primăvara", "1. Când temperatura solului variază între 55 și 60 de grade F", "2. De îndată ce iarba începe să înverzească", "3. Când anumite flori înfloresc"],
     "corect": 1
 },
 {
-    "intrebare": "Întrebarea 3",
-    "variante": ["varianta 1", "varianta 2", "varianta 3", "varianta 4"],
+    "intrebare": "Care dintre următoarele ar fi utilizate pentru fixarea tuburilor PEX la armături?",
+    "variante": ["0. clemă Cinch", "1. Inel de sertizare „Pro”", "2. Inel de sertizare din cupru", "3. Toate cele de mai sus"],
     "corect": 3
+},
+{
+    "intrebare": "De unde știi dacă un produs finit (vopsea, lac, etc.) este pe bază de ulei sau apă?",
+    "variante": ["0. Puteți spune după miros", "1. Citiți instrucțiunile de curățare", "2. Finisajele pe bază de ulei sunt mult mai groase decât cele pe bază de apă", "3. Este indicat clar pe etichetă"],
+    "corect": 1
 }
 ]

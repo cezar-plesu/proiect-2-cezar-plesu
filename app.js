@@ -1,14 +1,14 @@
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const bodyParser = require('body-parser')
-//const cookieParser = require('cookie-parser')
+const cookieParser=require('cookie-parser')
 
 const app = express();
 
 const port = 6789;
 
 
-//app.use(cookieParser())
+app.use(cookieParser())
 // directorul 'views' va conține fișierele .ejs (html + js executat la server)
 app.set('view engine', 'ejs');
 // suport pentru layout-uri - implicit fișierul care reprezintă template-ul site-ului este views/layout.ejs
@@ -81,15 +81,19 @@ app.get('/autentificare', (req, res) => {
 app.post("/verificare-autentificare", (req, res) => {
 	user = req.body;
 	if (user.username == "admin" && user.password == "admin") {
-	//	res.cookie("utilizator", user.username);
+		res.cookie("utilizator", user.username);
 		res.redirect("/")
 	} else {
-	//	res.cookie("log in fail");
+		res.cookie("log in fail");
 		res.redirect("/autentificare");
 	}
 });
 
-
+function validate_cookies(req,res,next)
+{
+	const{cookies}=req;
+	next();
+}
 
 
 app.listen(port, () => console.log(`Serverul rulează la adresa http://localhost:`));
