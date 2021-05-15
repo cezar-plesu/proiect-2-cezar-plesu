@@ -12,5 +12,16 @@
     "intrebare": "De unde știi dacă un produs finit (vopsea, lac, etc.) este pe bază de ulei sau apă?",
     "variante": ["0. Puteți spune după miros", "1. Citiți instrucțiunile de curățare", "2. Finisajele pe bază de ulei sunt mult mai groase decât cele pe bază de apă", "3. Este indicat clar pe etichetă"],
     "corect": 1
+},
+{
+    "intrebare": "Care dintre aceste trei proteze auditive este cel mai eficient?",
+    "variante": ["0. Urechi de urechi de spumă de unică folosință", "1. Urechile", "2. Finisajele pe bază de ulei sunt mult mai groase decât cele pe bază de apă", "3. Ștechere reutilizabile"],
+    "corect": 3
+},
+{
+    "intrebare": "Frigiderul tău a încetat să funcționeze. Este o idee bună să o deconectați pentru a reporni computerul.",
+    "variante": ["0. Adevarat", "1. Fals"],
+    "corect": 0
 }
+
 ]
