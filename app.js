@@ -76,18 +76,29 @@ app.post('/rezultat-chestionar', (req, res) => {
 
 app.get('/autentificare', (req, res) => {
 	res.render('autentificare');
+	
+	
 });
+
+
 
 app.post("/verificare-autentificare", (req, res) => {
 	user = req.body;
 	if (user.username == "admin" && user.password == "admin") {
 		res.cookie("utilizator", user.username);
-		res.redirect("/")
+		
+		res.send("Logat ca "+JSON.stringify(user.username)+"\n bine ai venit, "+JSON.stringify(user.username));
+		res.redirect("/") 
+		
 	} else {
+		
 		res.cookie("log in fail");
 		res.redirect("/autentificare");
+		
 	}
 });
+
+
 
 function validate_cookies(req,res,next)
 {
