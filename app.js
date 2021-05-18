@@ -34,19 +34,7 @@ app.get('/', (req, res) => {
 	user = req.cookies;
 	
 
-	var res = JSON.stringify(user).split(":");
-	var res2 = res[1].split("}")
 	
-	
-	res2[0] = res2[0].substring(1);
-	res2[0] = res2[0].slice(0, -1);
-	console.log(res2[0]);
-
-	if(res2[0] === "admin")
-	{
-		console.log("ok");
-		
-	}
 
 
 });
@@ -56,20 +44,6 @@ app.post('/', (req, res) => {
 	
 		user = req.cookies;
 		
-	
-		var res = JSON.stringify(user).split(":");
-		var res2 = res[1].split("}")
-		
-		
-		res2[0] = res2[0].substring(1);
-		res2[0] = res2[0].slice(0, -1);
-		console.log(res2[0]);
-	
-		if(res2[0] === "admin")
-		{
-			console.log("ok");
-			
-		}
 	
 	
 	});
@@ -154,7 +128,25 @@ function validate_cookies(req,res,next)
 
 // baze de date
 
-
+app.get("/creare-bd", (req, res) => {
+	var mysql = require('mysql');
+	var con = mysql.createConnection({
+		host: "localhost",
+		user: "a",
+		password: "b"
+		
+		});
+		
+		con.connect(function(err) {
+			if (err) throw err;
+			console.log("Connected!");
+			con.query("CREATE DATABASE mydb", function (err, result) {
+			if (err) throw err;
+			console.log("Database created");
+			});
+		});
+		res.redirect("/")
+});
 
 
 app.listen(port, () => console.log(`Serverul rulează la adresa http://localhost:`));
