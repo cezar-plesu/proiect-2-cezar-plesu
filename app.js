@@ -28,10 +28,52 @@ app.use(bodyParser.urlencoded({
 app.get('/', (req, res) => {
 
 //	req.cookies.name="utilizator";
-	//console.log(req.cookies);
+	console.log(req.cookies);
 	res.render('index');
 
+	user = req.cookies;
+	
+
+	var res = JSON.stringify(user).split(":");
+	var res2 = res[1].split("}")
+	
+	
+	res2[0] = res2[0].substring(1);
+	res2[0] = res2[0].slice(0, -1);
+	console.log(res2[0]);
+
+	if(res2[0] === "admin")
+	{
+		console.log("ok");
+		
+	}
+
+
 });
+
+app.post('/', (req, res) => {
+
+	
+		user = req.cookies;
+		
+	
+		var res = JSON.stringify(user).split(":");
+		var res2 = res[1].split("}")
+		
+		
+		res2[0] = res2[0].substring(1);
+		res2[0] = res2[0].slice(0, -1);
+		console.log(res2[0]);
+	
+		if(res2[0] === "admin")
+		{
+			console.log("ok");
+			
+		}
+	
+	
+	});
+
 
 // la accesarea din browser adresei http://localhost:6789/chestionar se va apela funcția specificată
 app.get('/chestionar', (req, res) => {
@@ -76,6 +118,10 @@ app.post('/rezultat-chestionar', (req, res) => {
 
 app.get('/autentificare', (req, res) => {
 	res.render('autentificare');
+	user = req.cookies;
+	
+
+
 	
 	
 });
@@ -85,13 +131,11 @@ app.get('/autentificare', (req, res) => {
 app.post("/verificare-autentificare", (req, res) => {
 	user = req.body;
 	if (user.username == "admin" && user.password == "admin") {
+
 		res.cookie("utilizator", user.username);
-		
-		res.send("Logat ca "+JSON.stringify(user.username)+"\n bine ai venit, "+JSON.stringify(user.username));
 		res.redirect("/") 
 		
 	} else {
-		
 		res.cookie("log in fail");
 		res.redirect("/autentificare");
 		
@@ -105,6 +149,12 @@ function validate_cookies(req,res,next)
 	const{cookies}=req;
 	next();
 }
+
+
+
+// baze de date
+
+
 
 
 app.listen(port, () => console.log(`Serverul rulează la adresa http://localhost:`));

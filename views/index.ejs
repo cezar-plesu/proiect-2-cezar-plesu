@@ -1,4 +1,39 @@
-<a href="/autentificare">Autentificate</a>
+<form action="/" method="POST">
+
+<% if(user.username ==="admin" && user != null){%>
+<p>
+    <%="Bine ai venit, "+user.username+"!"%>
+</p>
+<% } %>
+</form>
+
+
+<a href="/autentificare">Autentificare</a>
 <br>
 <a href="/chestionar">Chestionar</a>
+<br>
+<br>
 
+
+
+<br>
+<br>
+
+
+<form action="/creare-bd" method="GET">
+
+    <input id = "createBD" type="submit" value="createBD">
+</form>
+
+<br>
+<br>
+<form action="/inserare-bd" method="GET">
+
+    <input id = "inserare-BD" type="submit" value="Adauga in cos">
+</form>
+<br>
+<br>
+<form action="/vizualizare-cos" method="GET">
+
+    <input id = "vizualizare-cos" type="submit" value="Vezi cosul">
+</form>

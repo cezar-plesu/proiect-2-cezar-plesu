@@ -1,10 +1,26 @@
+<form action="/autentificare" method="POST">
+    <% if(user.username ==="admin" && user.password === "admin" || user.username === undefined){%>
+        <p>
+            
+        </p>
+        <% }else {%>
+            <p>
+                <%= "Parola sau utilizator gresit! " %>
+            </p>
+        <% } %>
+    </form>
+
 <form action="/verificare-autentificare" method="POST">
+    
+    
+    <br>
     <label for="username">username</label>
     <input type="text" id="username" name="username">
-
+    <br>
     <label for="password">Password</label>
     <input type="password" id="password" name="password">
+    <br>
     <button type="submit">Log in</button>
     
-    <p id = "helloUser"></p>
+    
 </form>
