@@ -63,7 +63,6 @@ app.get('/chestionar', (req, res) => {
 
 app.post('/rezultat-chestionar', (req, res) => {
 	console.log(req.body);
-	res.send("formular: " + JSON.stringify(req.body));
 	const fs = require('fs');
 
 	let rawdata = fs.readFileSync('intrebari.json');
@@ -71,22 +70,63 @@ app.post('/rezultat-chestionar', (req, res) => {
 
 	let corecte = 0;
 
-	listaIntrebari.forEach(intrebare => { 
+	var i = 1;
+	listaIntrebari.forEach(intrebare => {
 		var nume_intrebare = intrebare.intrebare;
-		//console.log(""+nume_intrebare)
+		var r = "-";
+		r = JSON.stringify(req.body);
+
+		var elm = r.split(",")
+
+		elm.forEach(raspuns_ales => {
+			if(i == 1)
+			{
+				nrIntrebare = raspuns_ales.charAt(2);
+			}
+			else
+			{
+				nrIntrebare = raspuns_ales.charAt(1);
+			
+			}
+			
+			console.log(nrIntrebare+"<---->"+i);
+
+			if(nrIntrebare == i)
+			{
+				
+				var bifat = raspuns_ales.charAt(raspuns_ales.length-2);
+				
+				var  j = 2;
+				
+				while(isNaN(bifat) && j < 5)
+				{
+					
+					bifat = raspuns_ales.charAt(raspuns_ales.length-j);
+					j++;
+					
+				}
+				
+				console.log(raspuns_ales+"\n"+bifat+"\t\t\t -->"+intrebare.corect+"\n");
+				if(bifat == intrebare.corect)
+				{
+					corecte = corecte +1;
+				}
+			}
+			
+
+		})
 		
-		var r = JSON.stringify(req.body)[""+(nume_intrebare)];
-		console.log("ok"+r+" "+nume_intrebare);
-		if( r === intrebare.corect)
-		{
-			corecte ++ ;
-			console.log("-------------"+r);
-		}
-		else
-		{
-			console.log("-------------"+r);
-		}
+		var res = r.charAt(r.length-3);
+		console.log(elm);
+
+		//console.log(nume_intrebare+"**************"+res+"**************"+intrebare.corect)
+		
+
+		i++;
 	})
+	res.send("Variante corecte: "+corecte);
+	
+
 
 });
 
@@ -131,20 +171,22 @@ app.get("/delogare", (req, res) => {
 	res.redirect("/");
 })
 
+
+
+
 // baze de date
 
 app.get("/creare-bd", (req, res) => {
 	
 	var MongoClient = require('mongodb').MongoClient;
 	var url = "mongodb://localhost:27017/mydb";
-
 	MongoClient.connect(url, function(err, db) {
   	if (err) throw err;
   	console.log("Database created!");
   	db.close();
 });
 
-	res.redirect("/")
+	//res.redirect("/")
 });
 
 

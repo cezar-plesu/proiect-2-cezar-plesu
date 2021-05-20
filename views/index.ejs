@@ -1,13 +1,14 @@
 <form action="/" method="POST">
 
-<% if(user.username ==="admin" && user != null){%>
+<% if(typeof user !== 'undefined') {%>
+<% if(user.username ==="admin" ){%>
 <p>
     <%="Logat ca "+user.username+"."%>
     <a href="/delogare">Delogare</a>
     <br>
     <%="Bine ai venit, "+user.username+"!"%>
 </p>
-<% } %>
+<% } }%>
 </form>
 
 

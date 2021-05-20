@@ -1,6 +1,7 @@
 <form action="/rezultat-chestionar" method="POST">
     <legend>Chestionar</legend>
     
+    <% var count = 0%>
     <% intrebari.forEach(elm =>{ %>
     <div>
         <h3>
@@ -10,7 +11,11 @@
         <input type="radio" id="<%=varinata %>" name="<%= elm.intrebare %> " value="<%=index%>"> 
         <label for="<%= varinata %>"><%= varinata %></label>
         <% }); %>
+        
+        
     </div>
     <% }); %>
+
+    
     <input type="submit" value="sumit">
 </form>
