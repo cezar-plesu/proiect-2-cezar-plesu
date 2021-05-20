@@ -2,10 +2,14 @@
 
 <% if(user.username ==="admin" && user != null){%>
 <p>
+    <%="Logat ca "+user.username+"."%>
+    <a href="/delogare">Delogare</a>
+    <br>
     <%="Bine ai venit, "+user.username+"!"%>
 </p>
 <% } %>
 </form>
+
 
 
 <a href="/autentificare">Autentificare</a>
@@ -13,6 +17,8 @@
 <a href="/chestionar">Chestionar</a>
 <br>
 <br>
+
+
 
 
 
@@ -27,6 +33,8 @@
 
 <br>
 <br>
+
+
 <form action="/adaugare_cos" method="GET">
 
     <input id = "adaugare_cos" type="submit" value="Adauga in cos">

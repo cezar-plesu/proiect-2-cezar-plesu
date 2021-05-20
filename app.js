@@ -110,7 +110,7 @@ app.post("/verificare-autentificare", (req, res) => {
 		res.redirect("/") 
 		
 	} else {
-		res.cookie("log in fail");
+		res.cookie("utilizator");
 		res.redirect("/autentificare");
 		
 	}
@@ -125,27 +125,26 @@ function validate_cookies(req,res,next)
 }
 
 
+app.get("/delogare", (req, res) => {
+	user.username =""
+	res.cookie(" utilizator");
+	res.redirect("/");
+})
 
 // baze de date
 
 app.get("/creare-bd", (req, res) => {
-	var mysql = require('mysql');
-	var con = mysql.createConnection({
-		host: "localhost",
-		user: "a",
-		password: "b"
-		
-		});
-		
-		con.connect(function(err) {
-			if (err) throw err;
-			console.log("Connected!");
-			con.query("CREATE DATABASE mydb", function (err, result) {
-			if (err) throw err;
-			console.log("Database created");
-			});
-		});
-		res.redirect("/")
+	
+	var MongoClient = require('mongodb').MongoClient;
+	var url = "mongodb://localhost:27017/mydb";
+
+	MongoClient.connect(url, function(err, db) {
+  	if (err) throw err;
+  	console.log("Database created!");
+  	db.close();
+});
+
+	res.redirect("/")
 });
 
 
