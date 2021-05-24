@@ -1,16 +1,20 @@
 <form action="/" method="POST">
 
-<% if(typeof user !== 'undefined') {%>
-<% if(user.username ==="admin" ){%>
-<p>
-    <%="Logat ca "+user.username+"."%>
-    <a href="/delogare">Delogare</a>
-    <br>
-    <%="Bine ai venit, "+user.username+"!"%>
-</p>
-<% } }%>
+    <% if(typeof user !== 'undefined') {%>
+    <% if(user.username ==="Johny" ){%>
+    <p>
+        <%="Logat ca "+user.username+"."%>
+        <a href="/delogare">Delogare</a>
+        <br>
+        <%="Bine ai venit, "+user.username+"!"%>
+    </p>
+
 </form>
 
+
+
+</form>
+<% } }%>
 
 
 <a href="/autentificare">Autentificare</a>
@@ -29,20 +33,76 @@
 
 <form action="/creare-bd" method="GET">
 
-    <input id = "createBD" type="submit" value="createBD">
+    <input id="createBD" type="submit" value="createBD">
 </form>
 
 <br>
 <br>
 
 
-<form action="/adaugare_cos" method="GET">
+<% if(typeof user !== 'undefined') {%>
+<% if(user.username ==="Johny" ){%>
 
-    <input id = "adaugare_cos" type="submit" value="Adauga in cos">
-</form>
+<% if(typeof x !== 'undefined') {%>
+<p>Catalog Produse</p>
+<table border="1">
+    <thead>
+        <tr>
+            <th scope="col">Produs</th>
+            <th scope="col">Pret</th>
+
+        </tr>
+    </thead>
+
+    <%i = 0;%>
+    <%j = 0;%>
+    <%  toSaleObjects.forEach( ob =>{ %>
+    <% if(i == 2){ i = 0;};%>
+    <% if(i == 0){%>
+    <tbody>
+        <td scope="row">
+            <%= ob %>
+            
+            
+        </td>
+
+        <%}else{%>
+
+        <td>
+            <%= ob %>
+        </td>
+        <td>
+
+
+            <form action="/adaugare_cos" method="POST">
+               
+                <input id="adaugare_cos" type="hidden" name = "id" value=<%=j%>>
+                <button type="submit">Adaugă în coș!</button>
+
+            </form>
+
+
+    </tbody>
+    </td>
+    <%};%>
+    <%j++;%>
+    <%i++});%>
+
+
+
+</table>
+<%}%>
+<% } }%>
+
+
+
+
+
 <br>
 <br>
-<form action="/vizualizare-cos" method="GET">
 
-    <input id = "vizualizare-cos" type="submit" value="Vezi cosul">
-</form>
+
+<a href="/vizualizare-cos">Vezi cosul</a>
+
+
+

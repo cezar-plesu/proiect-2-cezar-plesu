@@ -1,0 +1,42 @@
+<form action="/vizualizare-cos" method="GET">
+    <table border="1">
+        <thead>
+            <tr>
+                <th scope="col">Produs</th>
+                <th scope="col">Pret</th>
+
+            </tr>
+        </thead>
+
+        <%i = 0;%>
+        <%j = 0;%>
+        <%  cart.forEach( ob =>{ %>
+        <% if(i == 2){ i = 0;};%>
+        <% if(i == 0){%>
+        <tbody>
+            <td scope="row">
+                <%= ob %>
+
+
+            </td>
+
+            <%}else{%>
+
+            <td>
+                <%= ob %>
+            </td>
+            <td>
+
+
+        </tbody>
+        </td>
+        <%};%>
+        <%j++;%>
+        <%i++});%>
+
+
+
+    </table>
+    <%}%>
+<% } }%>
+</form>
