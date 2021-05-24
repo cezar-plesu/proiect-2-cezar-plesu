@@ -326,32 +326,14 @@ app.post("/adaugare_cos", (req, res) => {
 
 			cos.push(aux);
 
-			//	console.log(aux + "--------------------------------------------------produs");
+				console.log(aux + "--------------------------------------------------produs");
 		}
 
 		if (i == z) {
 			//pret
-			aux = elem.slice(8, -2);
-			//	console.log(aux + "--------------------------------------------------pret");
-			cos.push(aux);
-
-			var MongoClient = require('mongodb').MongoClient;
-			var url = "mongodb://localhost:27017/";
-
-			MongoClient.connect(url, function (err, db) {
-				if (err) throw err;
-				var dbo = db.db("cumparaturi");
-				var myobj = {
-					produs: cos[0],
-					pret: cos[1]
-				};
-				dbo.collection("cos").insertOne(myobj, function (err, res) {
-					if (err) throw err;
-					console.log("1 document inserted");
-					db.close();
-				});
-			});
-
+			aux2 = elem.slice(8, -2);
+				console.log(aux2 + "--------------------------------------------------pret");
+			cos.push(aux2);
 
 
 
@@ -379,96 +361,7 @@ app.post("/adaugare_cos", (req, res) => {
 
 app.get("/vizualizare-cos", (req, res) => {
 
-	var MongoClient = require('mongodb').MongoClient;
-	var url = "mongodb://localhost:27017/";
-
-	var produseM = "";
-
-
-	MongoClient.connect(url, function (err, db) {
-		if (err) throw err;
-		var dbo = db.db("cumparaturi");
-		x = dbo.collection("cos").find({}, {
-			projection: {
-				address: 0
-			}
-		}).toArray(function (err, result) {
-			if (err) throw err;
-
-			x = JSON.stringify(result);
-			//	console.log("\t\t\t" + x + "\n\n\n");
-
-			db.close();
-		});
-	});
-
-
-
-
-
-	if (typeof x !== 'undefined') {
-
-		x = x.slice(0, -1);
-
-		aux = x.split(",");
-		listThings = [];
-		var i = 0;
-		var j = 0;
-
-		aux.forEach(elm => {
-			//console.log("--------------------------------------------------" + elm+"\n");
-			if (i != 0) {
-				listThings.push(elm);
-			}
-			if (i == 2) {
-				i = 0;
-			} else {
-				i++;
-			}
-		})
-		//	console.log("\t\t\t" + listThings + "\n\n\n");
-		i = 0;
-		aux = [];
-		cart = [];
-
-
-		listThings.forEach(ob => {
-			//		console.log(i+"--------------------------------------------------" + ob+"\n");
-			aux = [];
-			aux = ob.split(":");
-			//console.log(aux[1] + "--------------------------------------------------" + ob);
-			if (i == 1) {
-				aux[1] = aux[1].slice(0, -1);
-
-			}
-			aux[1] = aux[1].slice(1, -1);
-			//	aux[1] = aux[1].slice(0, -1);
-
-			cart.push(aux[1]);
-
-
-			if (i == 2) {
-				i = 0
-			}
-			i++;
-
-		})
-
-
-
-
-		//console.log("\n\n---------------------------------------------------->>>>>>>>>>>>>>>>" + toSaleObjects);
-
-		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-		console.log(req.cookies);
-
-		
-	}
-
-	res.render('vizualizare-cos', {
-		cart
-	});
+	res.send(cos);
 
 });
 

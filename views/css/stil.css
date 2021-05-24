@@ -1,0 +1,135 @@
+
+body {
+	
+  background-color: yellow;	
+  margin: 0
+  
+}
+@media screen and (min-width: 580px) {
+  body {
+    background-color: #446666;
+	
+	
+	
+  }
+}
+
+
+a:hover {
+		color: cyan;
+	}
+@media screen and (min-width: 580px) {
+  a:hover {
+		color: red;
+	}
+}
+
+
+p {
+  font-family: verdana;
+  font-size: 20px;
+}
+@media screen and (min-width: 580px) {
+  p {
+		color: orange;
+	}
+	
+}
+
+
+
+.topnav {
+  overflow: hidden;
+  background-color: #333333;
+}
+
+.topnav a {
+  float: left;
+  color: #ff8800;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #33ccee;
+  color: black;
+}
+
+.active {
+  background-color: #440099;
+  color: #ff8800;
+}
+.inactive{
+  float: left;
+  color: #ff8800;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+
+
+.container-1{
+	display:flex;
+	flex-basis:27%
+}
+
+
+
+.container-1 div{
+	
+	border:10px #0000ff solid;
+	padding:10px;
+	width: 20%;
+	height: 20%;
+}
+
+.box-1{
+	
+	flex:2;
+	order:2;
+
+}
+
+
+.box-2{
+	
+	flex:1;
+	order:1;
+
+}
+
+
+table.c {
+  table-layout: fixed;
+  width: 20%;  
+}
+
+
+
+nav{
+	float: right;
+	width: 30%;
+	height: 300px;
+	padding: 10px;
+}
+
+centrat {
+  text-align: center;
+}
+
+dreapta {
+  text-align: right;
+}
+
+#desenare{
+
+	width:400;
+	height:400;
+    border:1px solid #c3c3c3;
+	background: white;
+	
+}
