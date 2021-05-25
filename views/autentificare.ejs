@@ -1,3 +1,10 @@
+<div class="topnav">
+    <a  href="/">Acasa</a>
+    <a  href="/chestionar">Chestionar</a>
+    <a class="active" href="/autentificare">Autentificare</a>
+         
+</div>
+
 <form action="/autentificare" method="POST">
     <% if(user.username ==="Johny" && user.password === "Johny" || user.username === undefined){%>
         <p>
@@ -6,6 +13,8 @@
         <% }else {%>
             <p>
                 <%= "Parola sau utilizator gresit! " %>
+                <br>
+                
             </p>
         <% } %>
     </form>

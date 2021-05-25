@@ -22,6 +22,16 @@
     "intrebare": "5) Frigiderul tău a încetat să funcționeze. Este o idee bună să o deconectați pentru a reporni computerul.",
     "variante": ["0. Adevarat", "1. Fals"],
     "corect": 0
+},
+{
+    "intrebare": "6) Puteți minimiza scrumul de săpun pe pereții și ușile dvs. de duș trecând la săpun sintetic..",
+    "variante": ["0. Adevarat", "1. Fals"],
+    "corect": 1
+},
+{
+    "intrebare": "7) Este o practică bună să înfășurați firele de plumb cu bandă din teflon și să acoperiți banda cu etanșare a filetului de țeavă.",
+    "variante": ["0. Adevarat", "1. Fals"],
+    "corect": 1
 }
 
 ]

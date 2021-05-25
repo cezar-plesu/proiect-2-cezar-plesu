@@ -209,7 +209,8 @@ app.post('/rezultat-chestionar', (req, res) => {
 
 		i++;
 	})
-	res.send("Variante corecte: " + corecte);
+	res.render("rezultat-chestionar",{corecte})
+	//res.send("Variante corecte: " + corecte);
 
 
 
@@ -326,13 +327,13 @@ app.post("/adaugare_cos", (req, res) => {
 
 			cos.push(aux);
 
-				console.log(aux + "--------------------------------------------------produs");
+		//		console.log(aux + "--------------------------------------------------produs");
 		}
 
 		if (i == z) {
 			//pret
 			aux2 = elem.slice(8, -2);
-				console.log(aux2 + "--------------------------------------------------pret");
+			//	console.log(aux2 + "--------------------------------------------------pret");
 			cos.push(aux2);
 
 
@@ -340,8 +341,8 @@ app.post("/adaugare_cos", (req, res) => {
 		}
 
 
-
-		console.log("\n" + cos[0] + "-----------------" + cos[1])
+		
+		//console.log("\n" + cos[0] + "-----------------" + cos[1])
 
 		i++;
 
@@ -349,10 +350,11 @@ app.post("/adaugare_cos", (req, res) => {
 
 
 
+	user.username = "Johny";
+	user.password = "Johny";
+	
 
-
-
-	res.redirect("/");
+	res.render("index",{user});
 
 
 });
@@ -361,7 +363,7 @@ app.post("/adaugare_cos", (req, res) => {
 
 app.get("/vizualizare-cos", (req, res) => {
 
-	res.send(cos);
+	res.render("vizualizare-cos",{cos,user});
 
 });
 

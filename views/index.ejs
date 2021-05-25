@@ -1,27 +1,38 @@
+<div class="topnav">
+    <a class="active" href="/">Acasa</a>
+    <a href="/chestionar">Chestionar</a>
+    <% if(typeof user !== 'undefined') {%>
+    <% if(user.username ==="Johny" ){%>
+         <a href="/vizualizare-cos">Vezi cosul</a>
+          <a href="/delogare">Delogare</a>
+          <dreapta >
+                <%="Logat ca "+user.username+"."%>
+          </dreapta >
+           <% } else{%>
+             <a href="/autentificare">Autentificare</a>
+            
+    <% }}%>
+</div>
+<centrat>
 <form action="/" method="POST">
 
     <% if(typeof user !== 'undefined') {%>
     <% if(user.username ==="Johny" ){%>
     <p>
-        <%="Logat ca "+user.username+"."%>
-        <a href="/delogare">Delogare</a>
-        <br>
+        
         <%="Bine ai venit, "+user.username+"!"%>
+        <br>
     </p>
-
+   
 </form>
 
+</centrat>
 
 
-</form>
 <% } }%>
 
 
-<a href="/autentificare">Autentificare</a>
-<br>
-<a href="/chestionar">Chestionar</a>
-<br>
-<br>
+
 
 
 
@@ -62,8 +73,8 @@
     <tbody>
         <td scope="row">
             <%= ob %>
-            
-            
+
+
         </td>
 
         <%}else{%>
@@ -75,8 +86,8 @@
 
 
             <form action="/adaugare_cos" method="POST">
-               
-                <input id="adaugare_cos" type="hidden" name = "id" value=<%=j%>>
+
+                <input id="adaugare_cos" type="hidden" name="id" value=<%=j%>>
                 <button type="submit">Adaugă în coș!</button>
 
             </form>
@@ -91,18 +102,12 @@
 
 
 </table>
+
+<br>
+<br>
+
+
+
+
 <%}%>
 <% } }%>
-
-
-
-
-
-<br>
-<br>
-
-
-<a href="/vizualizare-cos">Vezi cosul</a>
-
-
-

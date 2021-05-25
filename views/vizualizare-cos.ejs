@@ -1,3 +1,12 @@
+<div class="topnav">
+    <a  href="/">Acasa</a>
+    <a href="/chestionar">Chestionar</a>
+    <a class="active" href="/vizualizare-cos">Vezi cosul</a>
+    <a href="/delogare">Delogare</a>
+    <dreapta >
+        <%="Logat ca "+user.username+"."%>
+  </dreapta >
+</div>
 <form action="/vizualizare-cos" method="GET">
     <table border="1">
         <thead>
@@ -11,7 +20,7 @@
         <%i = 0;%>
         <%j = 0;%>
         <%  cos.forEach( ob =>{ %>
-        <% if(i == 2){ i = 0;};%>
+        <% if(i == 2){ i = 0;}%>
         <% if(i == 0){%>
         <tbody>
             <td scope="row">
@@ -24,19 +33,19 @@
 
             <td>
                 <%= ob %>
+            </tbody>
             </td>
-            <td>
+    
+       
+        <%}%>
 
-
-        </tbody>
-        </td>
-        <%};%>
-        <%j++;%>
-        <%i++});%>
+        <%i++;%>
+      
 
 
 
-    </table>
-    <%}%>
-<% } }%>
+    
+    <%})%>
+</table>
+
 </form>
